@@ -4,7 +4,6 @@ const form = document.querySelector(".feedback-form")
 const input = form.querySelector("input[name='email']")
 const textarea = form.querySelector("textarea[name='message']")
 
-
 const storedInfo = JSON.parse(localStorage.getItem("feedback-form-state"))
 if (storedInfo !== null) {
     const { email, message } = storedInfo;
@@ -21,7 +20,11 @@ form.addEventListener("input", throttle(function () {
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
-    localStorage.removeItem("feedback-form-state")
-    input.value = ''
-    textarea.value = ''
-})
+    if (input.value === "" || textarea.value === "") {
+        alert("Fill in all fields")
+    } else {
+        localStorage.removeItem("feedback-form-state")
+        input.value = ''
+        textarea.value = ''
+    }
+    })
