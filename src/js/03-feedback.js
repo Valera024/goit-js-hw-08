@@ -23,6 +23,8 @@ form.addEventListener("submit", function (event) {
     if (input.value === "" || textarea.value === "") {
         alert("Fill in all fields")
     } else {
+        const storage = localStorage.getItem("feedback-form-state");
+        console.log(storage);
         localStorage.removeItem("feedback-form-state")
         input.value = ''
         textarea.value = ''
