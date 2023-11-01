@@ -24,8 +24,7 @@ form.addEventListener("submit", function (event) {
         alert("Fill in all fields")
     } else {
         const storage = localStorage.getItem("feedback-form-state");
-        const storageObj = JSON.parse(storage);
-        console.log(storageObj);
+        console.log(JSON.parse(storage));
         localStorage.removeItem("feedback-form-state")
         input.value = ''
         textarea.value = ''
